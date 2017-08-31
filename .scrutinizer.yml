@@ -21,4 +21,3 @@ tools:
     external_code_coverage:
         timeout: 100
         runs: 1
-    php_code_sniffer: true

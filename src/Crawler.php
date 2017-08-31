@@ -84,17 +84,21 @@ class Crawler
      */
     public function setParameters($config)
     {
-
-        if (!is_array($config))
+        if (!is_array($config)) {
             throw new \InvalidArgumentException('$config variable must be an array.');
-        if (array_key_exists('userCode', $config))
+        }
+        if (array_key_exists('userCode', $config)) {
             $this->userCode = $config['userCode'];
-        if (array_key_exists('userName', $config))
+        }
+        if (array_key_exists('userName', $config)) {
             $this->userName = $config['userName'];
-        if (array_key_exists('password', $config))
+        }
+        if (array_key_exists('password', $config)) {
             $this->password = $config['password'];
-        if (array_key_exists('summaryLength', $config))
+        }
+        if (array_key_exists('summaryLength', $config)) {
             $this->summaryLength = $config['summaryLength'];
+        }
     }
 
     /**
@@ -158,6 +162,5 @@ class Crawler
     {
         $str = mb_convert_case($str, MB_CASE_TITLE, 'UTF-8');
         return $str;
-
     }
 }
