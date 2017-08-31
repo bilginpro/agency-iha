@@ -7,20 +7,12 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+[EN] This package is created for crawling news from Ihlas Haber Ajansi. You have to be subscribed to IHA and obtain user credentials for being able to use this package.
 
-## Structure
+[TR] Bu paket İHA abonelerinin kullanıcı bilgileriyle haberleri taramaları için oluşturulmuştur. Aşağıdaki şekilde kullandığınızda son eklenen haberlerden istediğiniz adette haberi dizi olarak alabilirsiniz. Paketi kullanmak için İHA abonesi olmalı ve kullanıcı bilgilerine sahip olmalısınız.
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
 
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
+
 
 
 ## Install
