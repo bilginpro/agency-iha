@@ -82,7 +82,7 @@ class Crawler
     /**
      * Sets config parameters.
      */
-    public function setParameters($config)
+    protected function setParameters($config)
     {
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config variable must be an array.');
@@ -108,7 +108,7 @@ class Crawler
      * Returns full url for crawling.
      * @return string
      */
-    public function getUrl()
+    protected function getUrl()
     {
         $url = 'http://abone.iha.com.tr/yeniabone/rss2.aspx?Sehir=0&UserCode='
             . $this->userCode
@@ -129,7 +129,7 @@ class Crawler
      *
      * @return string
      */
-    public function fetchUrl($url, $method = 'GET', $options = [])
+    protected function fetchUrl($url, $method = 'GET', $options = [])
     {
         $client = new GuzzleHttp\Client();
         $res = $client->request($method, $url, $options);
@@ -145,7 +145,7 @@ class Crawler
      * @param $len
      * @return string
      */
-    public function shortenString($str, $len)
+    protected function shortenString($str, $len)
     {
         if (strlen($str) > $len) {
             $str = rtrim(mb_substr($str, 0, $len, 'UTF-8'));
@@ -161,7 +161,7 @@ class Crawler
      * @param $str
      * @return string
      */
-    public function titleCase($str)
+    protected function titleCase($str)
     {
         $str = mb_convert_case($str, MB_CASE_TITLE, 'UTF-8');
         return $str;
