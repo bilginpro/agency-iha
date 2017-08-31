@@ -1,4 +1,4 @@
-# agency-iha
+# IHA News Crawler - İHA Haber Robotu
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
