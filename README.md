@@ -34,10 +34,41 @@ $ composer require bilginpro/agency-iha
 ## Usage
 
 ``` php
-$skeleton = new BilginPro\Agency\Iha();
-echo $skeleton->echoPhrase('Hello, League!');
-```
+$crawler = new \BilginPro\Agency\Iha\Crawler([
+    'userCode' => 'your-user-code',
+    'userName' => 'your-user-name',
+    'password' => 'your-password',
+    'limit' => 10, // optional
+    'summaryLength' => 150 // optional
+]);
 
+$news = $crawler->crawl();
+```
+Calling `$crawler->crawl` will return an array like this:
+
+```php
+[{
+		"code": "20170831AW161286",
+		"title": "Title of the news 1",
+		"summary": "Summary...",
+		"content": "Content 1",
+		"created_at": "31.08.2017 15:56:12",
+		"category": "Genel",
+		"city": "Istanbul",
+		"images": ["http:\/\/path\/to\/news1\/image1", "http:\/\/path\/to\/news1\/image2"]
+	},
+	{
+		"code": "20170831AW161287",
+		"title": "Title of the news 2",
+		"summary": "Summary...",
+		"content": "Content 2",
+		"created_at": "31.08.2017 15:56:12",
+		"category": "Genel",
+		"city": "Ankara",
+		"images": ["http:\/\/path\/to\/news2\/image1", "http:\/\/path\/to\/news2\/image2"]
+	}
+]
+```
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -50,7 +81,7 @@ $ composer test
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -58,7 +89,8 @@ If you discover any security related issues, please email yavuz@bilgin.pro inste
 
 ## Credits
 
-- [Yavuz Selim Bilgin][link-author]
+- [Yavuz Selim Bilgin][link-ysb]
+- [Murat Paksoy][link-mp]
 - [All Contributors][link-contributors]
 
 ## License
@@ -77,5 +109,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-scrutinizer]: https://scrutinizer-ci.com/g/bilginpro/agency-iha/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/bilginpro/agency-iha
 [link-downloads]: https://packagist.org/packages/bilginpro/agency-iha
-[link-author]: https://github.com/ysb
+[link-ysb]: https://github.com/ysb
+[link-mp]: https://github.com/slavesoul
 [link-contributors]: ../../contributors
