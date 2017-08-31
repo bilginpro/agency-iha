@@ -65,7 +65,7 @@ class Crawler
                 $news->category = $this->titleCase($item->Kategori);
                 $news->city = (!empty($item->Sehir) ? $this->titleCase($item->Sehir) : '');
                 $news->images = [];
-                if (isset($item->images) > 0 && count($item->images->image) > 0) {
+                if (isset($item->images) && count($item->images->image) > 0) {
                     foreach ($item->images->image as $image) {
                         $news->images[] = (string)$image;
                     }
@@ -98,6 +98,9 @@ class Crawler
         }
         if (array_key_exists('summaryLength', $config)) {
             $this->summaryLength = $config['summaryLength'];
+        }
+        if (array_key_exists('limit', $config)) {
+            $this->limit = $config['limit'];
         }
     }
 

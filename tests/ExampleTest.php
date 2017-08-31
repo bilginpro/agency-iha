@@ -1,6 +1,6 @@
 <?php
 
-namespace BilginPro\Ajans\Iha;
+namespace BilginPro\Agency\Iha;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
