@@ -28,16 +28,15 @@ $ composer require bilginpro/agency-iha
 
 ``` php
 $crawler = new \BilginPro\Agency\Iha\Crawler([
-    'userCode' => 'your-user-code',
-    'userName' => 'your-user-name',
+    'user_code' => 'your-user-code',
+    'user_name' => 'your-user-name',
     'password' => 'your-password',
-    'limit' => 10, // optional
     'summaryLength' => 150 // optional
 ]);
 
-$news = $crawler->crawl();
+$news = $crawler->crawl(['limit' => 10]);
 ```
-Calling `$crawler->crawl` will return an array like this:
+Calling `$crawler->crawl()` will return an array like this:
 
 ```php
 [{
