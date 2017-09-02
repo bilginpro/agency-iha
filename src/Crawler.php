@@ -31,10 +31,9 @@ class Crawler
      */
     protected $summary_lenth = 150;
 
-    /**
-     * @var int
-     */
-    protected $limit = 5;
+    protected $attributes = [
+        'limit' => '5',
+    ];
 
     /**
      * Create a new Crawler Instance
@@ -48,14 +47,16 @@ class Crawler
      * Does the magic.
      * @return array
      */
-    public function crawl()
+    public function crawl($attributes = [])
     {
+        $this->setAttributes($attributes);
+
         $response = $this->fetchUrl($this->getUrl());
         $xml = new \SimpleXMLElement($response);
         $result = [];
         $i = 0;
         foreach ($xml->channel->item as $item) {
-            if ($this->limit > $i) {
+            if ($this->attributes['limit'] > $i) {
                 $news = new \stdClass;
                 $news->code = (string)$item->HaberKodu;
                 $news->title = (string)$item->title;
@@ -99,8 +100,16 @@ class Crawler
         if (array_key_exists('summary_lenth', $config)) {
             $this->summary_lenth = $config['summary_lenth'];
         }
-        if (array_key_exists('limit', $config)) {
-            $this->limit = $config['limit'];
+    }
+
+    /**
+     * Sets filter attributes.
+     * @param $attributes array
+     */
+    protected function setAttributes($attributes)
+    {
+        foreach ($attributes as $key => $value) {
+            $this->attributes[$key] = $value;
         }
     }
 
