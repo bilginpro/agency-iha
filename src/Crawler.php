@@ -14,12 +14,12 @@ class Crawler
     /**
      * @var string
      */
-    protected $userCode = '';
+    protected $user_code = '';
 
     /**
      * @var string
      */
-    protected $userName = '';
+    protected $user_name = '';
 
     /**
      * @var string
@@ -29,7 +29,7 @@ class Crawler
     /**
      * @var int
      */
-    protected $summaryLength = 150;
+    protected $summary_lenth = 150;
 
     /**
      * @var int
@@ -59,7 +59,7 @@ class Crawler
                 $news = new \stdClass;
                 $news->code = (string)$item->HaberKodu;
                 $news->title = (string)$item->title;
-                $news->summary = (string)$this->shortenString($item->description, $this->summaryLength);
+                $news->summary = (string)$this->shortenString($item->description, $this->summary_lenth);
                 $news->content = (string)$item->description;
                 $news->created_at = (new Carbon($item->pubDate))->format('d.m.Y H:i:s');
                 $news->category = $this->titleCase($item->Kategori);
@@ -87,17 +87,17 @@ class Crawler
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config variable must be an array.');
         }
-        if (array_key_exists('userCode', $config)) {
-            $this->userCode = $config['userCode'];
+        if (array_key_exists('user_code', $config)) {
+            $this->user_code = $config['user_code'];
         }
-        if (array_key_exists('userName', $config)) {
-            $this->userName = $config['userName'];
+        if (array_key_exists('user_name', $config)) {
+            $this->user_name = $config['user_name'];
         }
         if (array_key_exists('password', $config)) {
             $this->password = $config['password'];
         }
-        if (array_key_exists('summaryLength', $config)) {
-            $this->summaryLength = $config['summaryLength'];
+        if (array_key_exists('summary_lenth', $config)) {
+            $this->summary_lenth = $config['summary_lenth'];
         }
         if (array_key_exists('limit', $config)) {
             $this->limit = $config['limit'];
@@ -111,9 +111,9 @@ class Crawler
     protected function getUrl()
     {
         $url = 'http://abone.iha.com.tr/yeniabone/rss2.aspx?Sehir=0&UserCode='
-            . $this->userCode
+            . $this->user_code
             . '&UserName='
-            . $this->userName
+            . $this->user_name
             . '&UserPassword='
             . $this->password;
 
