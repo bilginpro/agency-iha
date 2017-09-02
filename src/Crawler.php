@@ -31,6 +31,9 @@ class Crawler
      */
     protected $summary_length = 150;
 
+    /**
+     * @var array
+     */
     protected $attributes = [
         'limit' => '5',
     ];
