@@ -29,7 +29,7 @@ class Crawler
     /**
      * @var int
      */
-    protected $summary_lenth = 150;
+    protected $summary_length = 150;
 
     protected $attributes = [
         'limit' => '5',
@@ -60,7 +60,7 @@ class Crawler
                 $news = new \stdClass;
                 $news->code = (string)$item->HaberKodu;
                 $news->title = (string)$item->title;
-                $news->summary = (string)$this->shortenString($item->description, $this->summary_lenth);
+                $news->summary = (string)$this->shortenString($item->description, $this->summary_length);
                 $news->content = (string)$item->description;
                 $news->created_at = (new Carbon($item->pubDate))->format('d.m.Y H:i:s');
                 $news->category = $this->titleCase($item->Kategori);
@@ -97,8 +97,8 @@ class Crawler
         if (array_key_exists('password', $config)) {
             $this->password = $config['password'];
         }
-        if (array_key_exists('summary_lenth', $config)) {
-            $this->summary_lenth = $config['summary_lenth'];
+        if (array_key_exists('summary_length', $config)) {
+            $this->summary_length = $config['summary_length'];
         }
     }
 
